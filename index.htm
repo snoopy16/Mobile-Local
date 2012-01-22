@@ -1,0 +1,260 @@
+
+<!-- App Code Start: Using my base template for a HTML5, CSS, JS page -->
+
+<!-- Citing major Sources -->
+<!-- Credit 1: yql news example from http://developer.yahoo.com/yql/guide/yql-tutorials.html but with modifications to adjust to the type of results returned by google news -->
+<!-- Credit 2: http://www.colorzilla.com/gradient-editor/ ; for their wonderful css gradient generator tool
+<!-- Credit 3: http://www.activestate.com/komodo-edit ; for the Komodo Edit tool which was used to create this app
+<!-- Credit 4: http://ajaxload.info/ for creating animated gifs-->
+<!-- Credit 5: http://plugins.jquery.com/project/URLEncode ; url encoder plugin ; it didn't work out for me but seeems to be something which I will be using in the next version of this app, therefore am still referencing it here -->
+<!-- Credit 6: http://code.google.com/apis/maps/documentation/geocoding/ ; the xml example here was useful in understanding the structure of the returned result set-->
+<!-- Credit 7: Google Maps Marker was used as application icon
+
+<!-- Doctype shown below is characteristic HTML5 type doctype -->
+
+<!doctype html>
+  
+  <!-- Manifest file for offlining -->
+  
+<html manifest="cache.manifest">
+  
+  <head>
+    
+     <!-- using Viewport for displaying content which scales appropriately  -->
+            
+            <meta name="viewport" content="user-scalable=no,width=device-width" />
+            <meta name="description" content="Base Template for HTML5, AJAX stuff" />
+            <meta name="keywords" content="HTML,HTML5,CSS,JavaScript" />
+            <meta name="author" content="Nidhi Tare" />
+            <meta name="revised" content="Nidhi Tare, 02/11/2011" />
+            <meta charset="UTF-8" />
+            <meta http-equiv="content-script-type" content="text/javascript">
+            
+            <title>Mobile Local </title>
+            
+          
+             <!-- Including JavaScript(s) -->
+             <!-- JQuery is being pulled from Google's CDN, and can be downloaded locally if needed for offlining this app via a manifest file.-->
+             
+             <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+             <script src="js/mainjs.js" type="text/javascript"></script>
+             <script src="js/urlEncode.js" type="text/javascript"></script>
+    
+            <!-- Including default page Cascading Style Sheet -->
+            <link href="css/maincss.css" rel="stylesheet" type="text/css">
+              
+            <!-- Including App Icon(s) -->
+            <link href='images/applogo1.jpg' rel='icon' />
+            <link href='images/applogo1.jpg' rel="SHORTCUT ICON" />
+            
+  </head>
+  
+  <body>
+     <!-- This represents the overall container for the app -->
+     <table class='maincontainer'>
+      
+      <!-- Row containing the App Header -->
+      <tr>        
+            <td colspan=2>
+              
+               <table width=100%>
+                <tr>
+                  <td >
+                    <div class='appheader'>
+                       Mobile Local                       
+                    </div>
+                  </td>
+                </tr>
+               </table>
+               
+            </td>                     
+      </tr>      
+      <!-- End of Row containing App Header -->
+      
+      <!-- Row containing the top menubar -->
+      <tr>
+        
+         <td width=50%>
+          <div class='topmenubaritemactive' id='anylocation'>
+            Your Local Info Guru !
+          </div>
+         </td>         
+        
+      </tr>
+      
+      <!-- End of Row containing the top menubar -->
+      
+      <!-- Row containing the Location Search-->
+      
+       <tr>
+        <td colspan=2>
+          
+          <table width=100%>
+                <tr>
+                  <td >
+                    <!-- Div placeholder for AnyLocation Searchbox -->
+          <div class='anylocationinputbox' width=100%>            
+            <input id="anylocationinput" name="q" autofocus placeholder="Please type a location here ..."/>       
+          </div>
+                  </td>
+                  
+                   <td >
+                    
+                     <!-- Div placeholder for AnyLocation Searchbox -->
+                     <div class='anylocationsearchbox' id='anylocationsearchbox' width=100%> 
+                       <a id="anylocationsearch" class='anylocationsearchbox'> Search </a>
+                     </div>
+                     
+                  </td>
+                   
+                   
+                    <td>
+                      
+                     <!-- Div placeholder for LocalLocation Searchbox -->
+                     <div class='locallocationsearchbox' id='locallocationsearchbox' width=100%> 
+                       <a id="locallocationsearch" class='locallocationsearchbox'> Local Search </a>
+                     </div>
+                     
+                  </td>
+                 
+                   
+                   
+                </tr>
+               </table>
+          
+          
+        </td>    
+      </tr>
+       
+       <!-- End of Row containing the Location Search-->
+       
+       <!-- Row containing the Weather Section Header -->
+      <tr>        
+            <td colspan=2>
+              
+               <table width=100%>
+                <tr>
+                  <td >
+                    <div class='sectionheader'>
+                      Weather Forecast
+                    </div>
+                  </td>
+                </tr>
+               </table>
+               
+            </td>                     
+      </tr>      
+      <!-- End of Row containing Weather Section Header -->
+      
+      <!-- Row containing the Weather Info -->
+      
+      <tr>
+        <td colspan=2>
+          <!-- Div placeholder for News Results -->
+          <div class='weatherresults' id='weatherresults' >       
+            
+            
+          </div>
+        </td>    
+      </tr>
+    
+      <!-- End of Row containing the News -->
+      
+       <!-- Row containing the News Section Header -->
+      <tr>        
+            <td colspan=2>
+              
+               <table width=100%>
+                <tr>
+                  <td >
+                    <div class='sectionheader'>
+                      News
+                    </div>
+                  </td>
+                </tr>
+               </table>
+               
+            </td>                     
+      </tr>      
+      <!-- End of Row containing News Section Header -->
+      
+       
+       <!-- Row containing the News -->
+      
+      <tr>
+        <td colspan=2>
+          <!-- Div placeholder for News Results -->
+          <div class='newsresults' id='newsresults' >       
+            
+            
+          </div>
+        </td>    
+      </tr>
+    
+      <!-- End of Row containing the News -->
+      
+      
+      <!-- Row containing the History Section Header -->
+      <tr>        
+            <td colspan=2>
+              
+               <table width=100%>
+                <tr>
+                  <td >
+                    <div class='sectionheader'>
+                      Recent Search History
+                    </div>
+                  </td>
+                </tr>
+               </table>
+               
+            </td>                     
+      </tr>      
+      <!-- End of Row containing the History Section Header -->
+      
+      
+       <!-- Row containing the History -->
+      
+      <tr>        
+            <td colspan=2>
+              
+               <table width=100%>
+                <tr>
+                  <td >
+                    <div class='searchhistory' id='searchhistory'>
+                      
+                    </div>
+                  </td>
+                </tr>
+               </table>
+               
+            </td>                     
+      </tr>     
+     
+    
+      <!-- End of Row containing the History items -->
+      
+      <!-- Row containing the App Footer -->
+      <tr>        
+         <td colspan=2>
+          <br>
+          <div class='appfooter'>
+            &copy; 2011 Nidhi Tare
+          </div>
+         </td>       
+      </tr>      
+      <!-- End of Row containing App Header -->
+      
+      </table>
+     
+     <!-- End of app placeholders -->
+     
+  
+  <!-- This script was used initially to load up some results initially, part of debug code -->
+  <!--
+    <script src='http://query.yahooapis.com/v1/public/yql?q=select%20title%2C%20link%2C%20description%20from%20rss%20where%20url%20%3D%20%22http%3A%2F%2Fnews.google.com%2Fnews%3Fgeo%3Dboston%26output%3Drss%22&format=json&callback=cbfunc'>
+  </script>
+  -->
+    
+  </body>
+</html>
